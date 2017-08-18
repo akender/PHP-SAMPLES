@@ -1,29 +1,24 @@
 <?php
 
-//:::REQUIRE:::
+// ::: REQUIRE :::
 require_once 'cfg.php';
-require_once '../lib/functions.inc.php';
 
-$files = get_files($cfg['dir']['base'].$cfg['dir']['img']);
+$imgdir = $cfg['dir']['base'].$cfg['dir']['img'];
+$files = get_files($imgdir);
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et-EE">
 
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head><?php include $cfg['dir']['inc'].'header.inc.php'; ?>
+    <title>Carousel Example</title>
 </head>
 
 <body>
 
     <div class="container">
-        <h2>Carousel Example (<?php print count($files); ?>)</h2>
+        <h2>Carousel Example (<?php echo count($files); ?>)</h2>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <!--<ol class="carousel-indicators">
@@ -39,15 +34,15 @@ $files = get_files($cfg['dir']['base'].$cfg['dir']['img']);
 $i = 0;
 foreach ($files as $file) {
     if ($i > 0) {
-        print '
+        echo '
                 <div class="item">
-                    <img src="'.$cfg['dir']['img'].$file.'" alt="'.$file.'" style="width:100%;">
+                    <img src="'.$imgdir.$file.'" alt="'.$file.'" style="width:100%;">
                 </div>
 ';
     } else {
-        print '
+        echo '
                 <div class="item active">
-                    <img src="'.$cfg['dir']['img'].$file.'" alt="'.$file.'" style="width:100%;">
+                    <img src="'.$imgdir.$file.'" alt="'.$file.'" style="width:100%;">
                 </div>
 ';
     }
@@ -69,7 +64,7 @@ foreach ($files as $file) {
             </a>
         </div><!-- carousel -->
     </div><!-- container -->
-
+    <?php include $cfg['dir']['inc'].'footer.inc.php'; ?>
 </body>
 
 </html>
