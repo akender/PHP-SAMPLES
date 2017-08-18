@@ -1,9 +1,9 @@
 <?php
 
 // ::: REQUIRE :::
-require_once 'cfg.php';
+require_once '../inc/default.inc.php';
 
-$imgdir = $cfg['dir']['base'].$cfg['dir']['img'];
+$imgdir = $cfg['dir']['base'].$cfg['dir']['pic'];
 $files = get_files($imgdir);
 
 ?>
